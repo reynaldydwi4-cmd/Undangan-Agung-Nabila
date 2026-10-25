@@ -1,0 +1,1095 @@
+
+/* =========================================
+   UNDANGAN PERNIKAHAN AGUNG & NABILA
+   Bootstrap 5.3 + Custom CSS
+========================================= */
+
+/* 1. VARIABEL WARNA DAN FONT */
+:root {
+  --sage: #687b64;
+  --sage-dark: #465642;
+  --sage-light: #e8ece2;
+  --cream: #f7f5ef;
+  --cream-dark: #efede4;
+  --gold: #bd9a5c;
+  --ink: #252b24;
+  --muted: #72776e;
+  --white: #ffffff;
+
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
+
+  --section-space: 90px;
+  --border-color: rgba(104, 123, 100, 0.2);
+  --soft-shadow: 0 10px 35px rgba(37, 43, 36, 0.07);
+}
+
+/* 2. PENGATURAN DASAR */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+body.cover-active {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+.section-space {
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
+}
+
+.section-heading {
+  margin-bottom: 45px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  line-height: 1.8;
+}
+
+.section-title {
+  margin: 12px 0 18px;
+  font-family: var(--serif);
+  font-size: clamp(30px, 4vw, 45px);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.section-description {
+  max-width: 610px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.gold-text {
+  color: var(--gold);
+}
+
+/* 3. TOMBOL */
+.btn-sage {
+  padding: 12px 24px;
+  border: 1px solid var(--sage);
+  border-radius: 3px;
+  background: var(--sage);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.btn-sage:hover,
+.btn-sage:focus-visible {
+  border-color: var(--sage-dark);
+  background: var(--sage-dark);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.btn-outline-sage {
+  padding: 10px 20px;
+  border: 1px solid var(--sage);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--sage-dark);
+  font-size: 12px;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.btn-outline-sage:hover,
+.btn-outline-sage:focus-visible {
+  border-color: var(--sage);
+  background: var(--sage);
+  color: var(--white);
+}
+
+/* 4. COVER / HALAMAN PEMBUKA */
+.cover-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 30px 18px;
+
+  background:
+    linear-gradient(
+      rgba(34, 44, 33, 0.66),
+      rgba(34, 44, 33, 0.66)
+    ),
+    url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85")
+    center 45% / cover no-repeat;
+
+  color: var(--white);
+  text-align: center;
+
+  transition:
+    opacity 0.7s ease,
+    visibility 0.7s ease;
+}
+
+.cover-screen.cover-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cover-content {
+  width: 100%;
+  max-width: 650px;
+  padding: 35px 20px;
+}
+
+.cover-screen .eyebrow {
+  color: #e5c78e;
+}
+
+.cover-flower {
+  margin: 20px 0 0;
+  color: #e5c78e;
+  font-size: 40px;
+  line-height: 1.4;
+}
+
+.cover-content h1 {
+  margin: 8px 0 18px;
+  font-family: var(--serif);
+  font-size: clamp(42px, 8vw, 76px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.cover-content h1 span {
+  color: #e5c78e;
+  font-style: italic;
+}
+
+.cover-subtitle {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 13px;
+}
+
+.cover-line {
+  width: 70px;
+  height: 1px;
+  margin: 25px auto;
+  background: #e5c78e;
+}
+
+.cover-date {
+  margin-bottom: 30px;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+}
+
+.cover-guest {
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 12px;
+}
+
+/* 5. NAVBAR BOOTSTRAP */
+.wedding-navbar {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(104, 123, 100, 0.12);
+  background: rgba(247, 245, 239, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.navbar-brand {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 26px;
+  letter-spacing: 1px;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: var(--sage-dark);
+}
+
+.navbar-brand span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.navbar-nav .nav-link {
+  margin: 0 5px;
+  padding: 8px 10px;
+  color: var(--muted);
+  font-size: 12px;
+  transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: var(--sage-dark);
+}
+
+.navbar-toggler {
+  padding: 6px 9px;
+  border: 1px solid rgba(104, 123, 100, 0.35);
+  border-radius: 3px;
+  box-shadow: none !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(104, 123, 100, 0.15) !important;
+}
+
+/* 6. HERO / BERANDA */
+.hero-section {
+  display: flex;
+  align-items: center;
+  min-height: 730px;
+  padding: 125px 0 90px;
+}
+
+.hero-copy {
+  padding-right: 30px;
+}
+
+.hero-copy h1 {
+  margin: 24px 0;
+  font-family: var(--serif);
+  font-size: clamp(43px, 6vw, 75px);
+  font-weight: 400;
+  letter-spacing: -2px;
+  line-height: 1.17;
+}
+
+.hero-copy h1 em {
+  color: var(--sage);
+  font-weight: 400;
+}
+
+.hero-description {
+  max-width: 460px;
+  margin-bottom: 25px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.hero-link {
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--gold);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.hero-link:hover {
+  color: var(--sage-dark);
+}
+
+.hero-link i {
+  color: var(--gold);
+}
+
+.hero-names {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 50px;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.hero-names .gold-text {
+  font-family: var(--serif);
+  font-size: 21px;
+}
+
+.hero-image-wrap {
+  position: relative;
+  z-index: 0;
+  margin: 0 8px 8px 0;
+  padding: 0 20px 20px 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: 510px;
+  border-radius: 2px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.date-card {
+  position: absolute;
+  right: -8px;
+  bottom: 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 205px;
+  padding: 17px 22px;
+  background: var(--white);
+  box-shadow: var(--soft-shadow);
+}
+
+.date-card span {
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.date-card strong {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 400;
+}
+
+/* 7. PEMBUKA / AYAT */
+.intro-section {
+  background: var(--sage-light);
+}
+
+.section-flower {
+  margin: 14px 0;
+  color: var(--gold);
+  font-size: 35px;
+  line-height: 1.5;
+}
+
+.arabic-text {
+  margin-top: 35px;
+  color: var(--ink);
+  font-size: clamp(19px, 3vw, 28px);
+  line-height: 2;
+  direction: rtl;
+}
+
+.verse-text {
+  max-width: 620px;
+  margin: 15px auto 5px;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.9;
+}
+
+/* 8. KARTU MEMPELAI */
+.couple-section {
+  background: var(--cream);
+}
+
+.couple-card {
+  overflow: hidden;
+  height: 100%;
+  border: 0;
+  border-radius: 4px;
+  background: var(--white);
+  box-shadow: 0 8px 35px rgba(37, 43, 36, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.couple-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(37, 43, 36, 0.1);
+}
+
+.couple-image {
+  width: 100%;
+  height: 380px;
+  border-radius: 0;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.couple-card .card-body {
+  padding: 30px 25px;
+}
+
+.couple-name {
+  margin: 12px 0;
+  font-family: var(--serif);
+  font-size: clamp(23px, 2.5vw, 29px);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.couple-card .card-text {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.social-divider {
+  width: 45px;
+  height: 1px;
+  margin: 20px auto;
+  background: var(--gold);
+}
+
+.family-text {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* 9. COUNTDOWN */
+.countdown-section {
+  background: var(--sage-dark);
+  color: var(--white);
+}
+
+.countdown-section .eyebrow {
+  color: #e2c18a;
+}
+
+.countdown-section .section-title {
+  margin-bottom: 40px;
+  color: var(--white);
+}
+
+.countdown-row {
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.count-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 115px;
+  padding: 12px 5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.count-box strong {
+  font-family: var(--serif);
+  font-size: clamp(27px, 4vw, 43px);
+  font-weight: 400;
+  line-height: 1.3;
+  font-variant-numeric: tabular-nums;
+}
+
+.count-box span {
+  color: #e2c18a;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* 10. KISAH CINTA */
+.story-section {
+  background: var(--cream-dark);
+}
+
+.story-timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.story-timeline::before {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 65px;
+  width: 1px;
+  background: rgba(104, 123, 100, 0.4);
+  content: "";
+}
+
+.story-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 25px;
+  padding-bottom: 40px;
+}
+
+.story-item:last-child {
+  padding-bottom: 0;
+}
+
+.story-year {
+  position: relative;
+  z-index: 1;
+  align-self: start;
+  width: 100px;
+  padding: 5px 12px;
+  background: var(--sage);
+  color: var(--white);
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.story-content {
+  min-width: 0;
+  padding: 0 0 10px;
+}
+
+.story-content h3 {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.story-content p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* 11. DETAIL ACARA */
+.event-section {
+  background: var(--cream);
+}
+
+.event-card {
+  height: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--white);
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: var(--soft-shadow);
+}
+
+.event-card .card-body {
+  padding: 38px 25px;
+}
+
+.event-icon {
+  display: grid;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--sage-light);
+  color: var(--sage-dark);
+  font-size: 24px;
+}
+
+.event-title {
+  margin: 10px 0 25px;
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.event-card p:not(.eyebrow) {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.event-card p i {
+  color: var(--gold);
+}
+
+/* 12. FORM RSVP */
+.rsvp-section {
+  background: var(--cream-dark);
+}
+
+.rsvp-card {
+  padding: 42px;
+  border: 1px solid rgba(104, 123, 100, 0.18);
+  border-radius: 4px;
+  background: var(--white);
+  box-shadow: 0 10px 40px rgba(37, 43, 36, 0.04);
+}
+
+.rsvp-card .section-title {
+  font-size: clamp(29px, 4vw, 40px);
+}
+
+.form-label {
+  margin-bottom: 7px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.form-control,
+.form-select {
+  min-height: 45px;
+  border: 1px solid #dedfd6;
+  border-radius: 3px;
+  background-color: #fcfcf9;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+.form-control {
+  padding: 11px 13px;
+}
+
+.form-control::placeholder {
+  color: #999d94;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--sage);
+  background-color: var(--white);
+  box-shadow: 0 0 0 0.2rem rgba(104, 123, 100, 0.12);
+}
+
+textarea.form-control {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.form-note {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* 13. HADIAH / REKENING */
+.gift-section {
+  background: var(--cream);
+}
+
+.gift-card {
+  width: 100%;
+  max-width: 380px;
+  margin-top: 35px;
+  padding: 35px 25px;
+  border: 1px solid rgba(104, 123, 100, 0.25);
+  border-radius: 4px;
+  background: var(--white);
+  box-shadow: 0 8px 30px rgba(37, 43, 36, 0.04);
+}
+
+.gift-icon {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--gold);
+  font-size: 32px;
+}
+
+.gift-card h3 {
+  margin-bottom: 10px;
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.account-number {
+  margin: 18px 0 5px;
+  color: var(--sage-dark);
+  font-size: clamp(18px, 4vw, 21px);
+  font-weight: 700;
+  letter-spacing: 1px;
+  overflow-wrap: anywhere;
+}
+
+.gift-card > p:not(.eyebrow):not(.account-number) {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+#copyMessage {
+  min-height: 1.5em;
+  overflow-wrap: anywhere;
+}
+
+/* 14. PENUTUP */
+.closing-section {
+  background: var(--sage-light);
+}
+
+.closing-title {
+  margin: 20px 0;
+  font-family: var(--serif);
+  font-size: clamp(35px, 5vw, 55px);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.closing-names {
+  margin: 25px 0;
+  color: var(--sage-dark);
+  font-family: var(--serif);
+  font-size: 27px;
+  font-style: italic;
+}
+
+/* 15. FOOTER */
+.site-footer {
+  padding: 30px 0;
+  background: var(--sage-dark);
+  color: var(--white);
+}
+
+.site-footer p {
+  font-family: var(--serif);
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.site-footer small {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* 16. TOMBOL MUSIK */
+.music-button {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1000;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  background: var(--sage-dark);
+  color: var(--white);
+  box-shadow: 0 5px 20px rgba(37, 43, 36, 0.2);
+  font-size: 22px;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.music-button:hover {
+  transform: scale(1.08);
+  background: var(--sage);
+}
+
+.music-button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* 17. TABLET DAN LAPTOP KECIL */
+@media (max-width: 991.98px) {
+  :root {
+    --section-space: 75px;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding: 125px 0 75px;
+  }
+
+  .hero-copy {
+    padding-right: 12px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(43px, 7vw, 65px);
+  }
+
+  .hero-image {
+    height: 450px;
+  }
+
+  .hero-names {
+    margin-top: 35px;
+  }
+
+  .navbar-collapse {
+    padding-top: 15px;
+  }
+
+  .navbar-nav .nav-link {
+    margin: 0;
+    padding: 9px 0;
+  }
+
+  .navbar-nav .btn {
+    margin-top: 8px;
+  }
+
+  .couple-image {
+    height: 330px;
+  }
+
+  .rsvp-card {
+    padding: 35px;
+  }
+}
+
+/* 18. HANDPHONE */
+@media (max-width: 575.98px) {
+  :root {
+    --section-space: 58px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .section-title {
+    font-size: 31px;
+  }
+
+  .section-description {
+    font-size: 13px;
+  }
+
+  /* Cover */
+  .cover-content {
+    padding: 25px 10px;
+  }
+
+  .cover-content h1 {
+    font-size: clamp(40px, 12vw, 58px);
+  }
+
+  .cover-date {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 110px 0 55px;
+  }
+
+  .hero-copy h1 {
+    margin: 18px 0;
+    font-size: clamp(42px, 12vw, 50px);
+    letter-spacing: -1px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-names {
+    gap: 9px;
+    margin-top: 30px;
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .hero-image-wrap {
+    margin-right: 5px;
+    padding: 0 12px 12px 0;
+  }
+
+  .hero-image {
+    height: 360px;
+  }
+
+  .date-card {
+    right: -3px;
+    bottom: 25px;
+    min-width: 165px;
+    padding: 12px 15px;
+  }
+
+  .date-card span {
+    font-size: 8px;
+  }
+
+  .date-card strong {
+    font-size: 18px;
+  }
+
+  /* Pembuka */
+  .arabic-text {
+    margin-top: 25px;
+    font-size: 21px;
+  }
+
+  .verse-text {
+    font-size: 14px;
+  }
+
+  /* Mempelai */
+  .couple-image {
+    height: 350px;
+  }
+
+  .couple-card .card-body {
+    padding: 25px 20px;
+  }
+
+  .couple-name {
+    font-size: 25px;
+  }
+
+  /* Countdown */
+  .countdown-section .section-title {
+    margin-bottom: 28px;
+  }
+
+  .count-box {
+    min-height: 85px;
+    padding: 10px 2px;
+  }
+
+  .count-box strong {
+    font-size: clamp(22px, 6vw, 29px);
+  }
+
+  .count-box span {
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+
+  /* Kisah cinta */
+  .story-timeline::before {
+    left: 42px;
+  }
+
+  .story-item {
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 14px;
+    padding-bottom: 30px;
+  }
+
+  .story-year {
+    width: 68px;
+    padding: 5px 4px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .story-content h3 {
+    font-size: 21px;
+  }
+
+  .story-content p {
+    font-size: 12px;
+  }
+
+  /* Acara */
+  .event-card .card-body {
+    padding: 30px 18px;
+  }
+
+  .event-title {
+    font-size: 25px;
+  }
+
+  /* RSVP */
+  .rsvp-card {
+    padding: 27px 19px;
+  }
+
+  .rsvp-card .section-title {
+    font-size: 29px;
+  }
+
+  /* Hadiah */
+  .gift-card {
+    padding: 30px 18px;
+  }
+
+  /* Penutup */
+  .closing-title {
+    font-size: 36px;
+  }
+
+  .closing-names {
+    font-size: 25px;
+  }
+
+  /* Musik */
+  .music-button {
+    right: 15px;
+    bottom: 15px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* 19. AKSESIBILITAS: KURANGI ANIMASI */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
